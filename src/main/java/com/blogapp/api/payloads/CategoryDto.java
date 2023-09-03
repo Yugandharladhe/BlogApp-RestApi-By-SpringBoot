@@ -1,11 +1,6 @@
 package com.blogapp.api.payloads;
 
-import com.blogapp.api.entities.Category;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 public class CategoryDto {
 	

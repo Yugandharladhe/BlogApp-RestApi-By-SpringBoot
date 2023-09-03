@@ -2,11 +2,7 @@ package com.blogapp.api.payloads;
 
 import java.util.Date;
 
-import com.blogapp.api.entities.Category;
-import com.blogapp.api.entities.User;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 public class PostDto {
 	

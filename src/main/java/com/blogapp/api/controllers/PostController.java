@@ -2,7 +2,6 @@ package com.blogapp.api.controllers;
 import com.blogapp.api.payloads.ApiResponse;
 
 import java.util.List;
-import com.blogapp.api.entities.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

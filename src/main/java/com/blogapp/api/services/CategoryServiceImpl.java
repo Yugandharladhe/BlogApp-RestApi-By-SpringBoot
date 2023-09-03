@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.blogapp.api.entities.Category;
 import com.blogapp.api.exceptions.ResourceNotFoundException;
 import com.blogapp.api.payloads.CategoryDto;
-import com.blogapp.api.payloads.UserDto;
 import com.blogapp.api.repositories.CategoryRepository;
 
 @Service

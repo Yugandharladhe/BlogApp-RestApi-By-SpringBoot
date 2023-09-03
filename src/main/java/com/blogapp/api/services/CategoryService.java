@@ -3,7 +3,7 @@ package com.blogapp.api.services;
 import java.util.List;
 
 import com.blogapp.api.payloads.CategoryDto;
-import com.blogapp.api.payloads.UserDto;
+
 
 public interface CategoryService {
 	public CategoryDto createCategory(CategoryDto categoryDto);

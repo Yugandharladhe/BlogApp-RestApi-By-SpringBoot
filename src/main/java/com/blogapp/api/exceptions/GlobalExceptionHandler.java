@@ -1,6 +1,6 @@
 package com.blogapp.api.exceptions;
 
-import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Map<String,String>> handleMethodArgsNotValidException(MethodArgumentNotValidException ex)
 	{
-		Map<String,String> exc=new HashMap<>();
+//		Map<String,String> exc=new HashMap<>();
 		//here return all errors in form of key value pair
 		//{fieldname:its default message}
 		return null;
