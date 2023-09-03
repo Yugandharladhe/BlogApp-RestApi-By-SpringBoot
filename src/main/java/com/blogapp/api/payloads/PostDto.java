@@ -1,8 +1,13 @@
 package com.blogapp.api.payloads;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
-
+import com.blogapp.api.entities.Comment;
 
 public class PostDto {
 	
@@ -18,6 +23,16 @@ public class PostDto {
 	
 	
 	private UserDto user;
+	
+	private List<Comment> comments=new ArrayList<>();
+	
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
 
 	public Integer getPostId() {

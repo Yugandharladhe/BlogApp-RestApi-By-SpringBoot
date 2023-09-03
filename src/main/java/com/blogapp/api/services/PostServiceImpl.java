@@ -15,6 +15,7 @@ import com.blogapp.api.exceptions.ResourceNotFoundException;
 import com.blogapp.api.entities.Post;
 import com.blogapp.api.payloads.PostDto;
 import com.blogapp.api.repositories.CategoryRepository;
+import com.blogapp.api.repositories.CommentRepository;
 import com.blogapp.api.repositories.PostRepository;
 import com.blogapp.api.repositories.UserRepository;
 
@@ -32,6 +33,9 @@ public class PostServiceImpl implements PostService{
 	
 	@Autowired
 	CategoryRepository categoryRepository;
+	
+	@Autowired
+	CommentRepository commentRepository;
 	
 	@Override
 	public PostDto createPost(PostDto postDto,Integer userId,Integer categoryId) {

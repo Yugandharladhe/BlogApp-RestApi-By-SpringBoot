@@ -1,9 +1,11 @@
 package com.blogapp.api.entities;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -32,8 +34,14 @@ public class User {
 	
 	private String password;
 	private String about;
-	@OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<Post> posts=new ArrayList<>();
+	
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@JsonManagedReference
+	private List<Comment> comments=new ArrayList<>();
+	
+
 	public int getId() {
 		return id;
 	}
@@ -64,10 +72,13 @@ public class User {
 	public void setAbout(String about) {
 		this.about = about;
 	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+	public List<Post> getPosts() {
+		return posts;
+	}
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 	
+
 	
 }

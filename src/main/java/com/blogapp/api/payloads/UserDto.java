@@ -1,5 +1,14 @@
 package com.blogapp.api.payloads;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.blogapp.api.entities.Comment;
+import com.blogapp.api.entities.Post;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -8,19 +17,18 @@ public class UserDto {
 
 	private int id;
 	
-	@NotEmpty
-	@Size(min=4,message="username must be min of 4 characters")
+	
 	private String name;
 	
-	@Email
+	
 	private String email;
 	
-	@NotEmpty
-	@Size(min=8,message="passwrd must be 8 characters")
+	
 	private String password;
-
-	@NotEmpty
+	
 	private String about;
+	
+	
 	public int getId() {
 		return id;
 	}

@@ -16,7 +16,8 @@ import com.blogapp.api.repositories.CategoryRepository;
 public class CategoryServiceImpl implements CategoryService{
 
 	@Autowired
-	private CategoryRepository categoryRepository; 
+	private CategoryRepository categoryRepository;
+	
 	
 	@Autowired
 	private ModelMapper modelMapper;
