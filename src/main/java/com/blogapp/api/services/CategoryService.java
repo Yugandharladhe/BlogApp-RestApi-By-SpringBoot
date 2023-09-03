@@ -10,6 +10,5 @@ public interface CategoryService {
 	public CategoryDto updateCategory(CategoryDto categoryDto,Integer categoryId);
 	public CategoryDto getCategoryById(Integer categoryId);
 	public List<CategoryDto> getAllCategory();
-	public void deleteUser(Integer categoryId);
-	void deleteCategory(Integer categoryId);
+	public void deleteCategory(Integer categoryId);
 }

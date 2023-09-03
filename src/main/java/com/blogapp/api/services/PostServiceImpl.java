@@ -34,7 +34,7 @@ public class PostServiceImpl implements PostService{
 	CategoryRepository categoryRepository;
 	
 	@Override
-	public PostDto create(PostDto postDto,Integer userId,Integer categoryId) {
+	public PostDto createPost(PostDto postDto,Integer userId,Integer categoryId) {
 		// TODO Auto-generated method stub
 		Post post=this.modelMapper.map(postDto, Post.class);
 		post.setImageUrl("default.png");
@@ -55,7 +55,6 @@ public class PostServiceImpl implements PostService{
 	public void deletePost(Integer postId) {
 		// TODO Auto-generated method stub
 		Post post=this.postRepository.findById(postId).orElseThrow(()->new ResourceNotFoundException("Post","id",postId));
-		System.out.print(post);
 		this.postRepository.delete(post);
 	}
 
@@ -91,9 +90,16 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public List<Post> getPostByUser(Integer userId) {
+	public List<PostDto> getPostByUser(Integer userId) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		User user=this.userRepository.findById(userId).orElseThrow(()->new ResourceNotFoundException("User","id",userId));
+		List<Post> posts=this.postRepository.findByUser(user);
+		List<PostDto> res=new ArrayList<>();
+		posts.forEach((post)->{
+			res.add(this.modelMapper.map(post, PostDto.class));
+		});
+		return res;
 	}
 
 	@Override
@@ -103,9 +109,16 @@ public class PostServiceImpl implements PostService{
 	}
 
 	@Override
-	public Post create(PostDto postDto) {
+	public PostDto updatePost(PostDto postDto, Integer postId) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Post post=this.postRepository.findById(postId).orElseThrow(()->new ResourceNotFoundException("Post","id",postId));
+		post.setImageUrl(postDto.getImageUrl());
+		post.setContent(postDto.getContent());
+		post.setTitle(postDto.getTitle());
+		this.postRepository.save(post);
+		return this.modelMapper.map(post,PostDto.class);
 	}
 
+	
 }

@@ -16,17 +16,21 @@ import jakarta.persistence.ManyToOne;
 
 public interface PostService {
 	
-	public PostDto create(PostDto postDto,Integer userId,Integer categoryId);
+	public PostDto createPost(PostDto postDto,Integer userId,Integer categoryId);
+	
 	public void deletePost(Integer postId);
+	
+	public PostDto updatePost(PostDto postDto,Integer postId);
+	
 	public List<PostDto> getAllPost();
+	
 	public PostDto getPostById(Integer postId);
+	
 	public List<PostDto> getPostByCategory(Integer categoryId);
-	public List<Post> getPostByUser(Integer userId);
+	
+	public List<PostDto> getPostByUser(Integer userId);
 	
 	//search post
 	
 	public List<Post> searchPost(String keyword);
-	Post create(PostDto postDto);
-	
-	
 }

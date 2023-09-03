@@ -75,10 +75,6 @@ public class CategoryServiceImpl implements CategoryService{
 		return modelMapper.map(categoryDto, Category.class);
 	}
 
-	@Override
-	public void deleteUser(Integer categoryId) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

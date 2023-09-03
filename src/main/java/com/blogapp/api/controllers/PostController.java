@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,7 @@ public class PostController {
 	@PostMapping("/create/{categoryId}/{userId}")
 	public ResponseEntity<PostDto> createPost(@RequestBody PostDto PostDto,@PathVariable("categoryId") Integer categoryId,@PathVariable("userId") Integer userId)
 	{
-		PostDto postDto2=this.postServiceImpl.create(PostDto,userId,categoryId);
+		PostDto postDto2=this.postServiceImpl.createPost(PostDto,userId,categoryId);
 		return new ResponseEntity<PostDto>(postDto2,HttpStatus.CREATED);
 	}
 	
@@ -37,10 +38,10 @@ public class PostController {
 	}
 	
 	@DeleteMapping("/delete/{postId}")
-	public ResponseEntity<?> deletePost(@PathVariable("postId") Integer postId)
+	public ApiResponse deletePost(@PathVariable("postId") Integer postId)
 	{
 		this.postServiceImpl.deletePost(postId);
-		return new ResponseEntity(new ApiResponse("user deleted Successfully",true),HttpStatus.OK);
+		return new ApiResponse("user deleted Successfully",true);
 	}
 	
 	@GetMapping("/get/{categoryId}")
@@ -48,6 +49,23 @@ public class PostController {
 	{
 		List<PostDto> posts=this.postServiceImpl.getPostByCategory(catId);
 		return new ResponseEntity<>(posts,HttpStatus.FOUND);
+	}
+	
+	@GetMapping("/getByUser/{userId}")
+	public ResponseEntity<?> getPostByUser(@PathVariable("userId") Integer userId)
+	{
+		List<PostDto> posts=this.postServiceImpl.getPostByUser(userId);
+		return new ResponseEntity<>(posts,HttpStatus.FOUND);
+		
+	}
+	
+	@PutMapping("/update/{postId}")
+	public ResponseEntity<?> updatePost(@RequestBody PostDto postDto1,@PathVariable("postId") Integer postId)
+	{
+		PostDto postDto=this.postServiceImpl.updatePost(postDto1,postId);
+		
+		return new ResponseEntity<>(postDto,HttpStatus.OK);
+		
 	}
 	
 }
