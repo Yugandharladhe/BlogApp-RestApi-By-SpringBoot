@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.blogapp.api.entities.Comment;
+
 import com.blogapp.api.payloads.CommentDto;
 import com.blogapp.api.services.CommentServiceImpl;
 

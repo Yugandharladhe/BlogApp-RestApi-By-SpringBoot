@@ -1,14 +1,6 @@
 package com.blogapp.api.payloads;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import com.blogapp.api.entities.Comment;
-import com.blogapp.api.entities.Post;
-import com.blogapp.api.entities.User;
-
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 
 public class CommentDto {
 

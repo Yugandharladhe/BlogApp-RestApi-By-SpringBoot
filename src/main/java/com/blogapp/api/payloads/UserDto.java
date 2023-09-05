@@ -1,17 +1,6 @@
 package com.blogapp.api.payloads;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import com.blogapp.api.entities.Comment;
-import com.blogapp.api.entities.Post;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 
 public class UserDto {
 
